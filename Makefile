@@ -1,5 +1,5 @@
 SHELL = /bin/sh
-C := gcc
+C := clang
 
 
 WARNINGFLAGS := -Wshadow -Wwrite-strings
@@ -35,7 +35,7 @@ debug: target-dir
 	@$(C) $(DEBUGFLAGS) $(SRCS) -o $(TARGET)
 
 install: all
-	@sudo mv $(TARGET) /usr/bin
+	@sudo cp -a $(TARGET) /usr/bin
 
 uninstall:
 	@sudo rm /usr/$(TARGET)
