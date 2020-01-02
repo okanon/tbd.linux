@@ -3,7 +3,7 @@
 Convert Mach-O Libraries &amp; Frameworks to .tbd
 
 ## How to Build
-required `clang`
+`make` or `make C=clang`
 
 ## How to Use
 

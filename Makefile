@@ -1,7 +1,15 @@
 SHELL = /bin/sh
-C := clang
+C := gcc
 
-WARNINGFLAGS := -Wshadow -Wwrite-strings -Wunused-parameter -Wno-attributes
+
+WARNINGFLAGS := -Wshadow -Wwrite-strings
+ifeq ($(C), gcc)
+   WARNINGFLAGS := $(WARNINGFLAGS) -Wno-unused-parameter -Wno-attributes -Wno-nonnull
+endif
+ifeq ($(C), clang)
+	WARNINGFLAGS := $(WARNINGFLAGS) -Wunused-parameter -Wno-attributes -Wno-nonnull
+endif
+
 DEFAULTFLAGS := -std=gnu11 -I. -Iinclude/ $(WARNINGFLAGS)
 CFLAGS := $(DEFAULTFLAGS) -Ofast -funroll-loops
 COMPILE_COMMANDS_FLAGS := -I.vscode/ -Wno-unused-parameter -Wno-sign-conversion $(CFLAGS)

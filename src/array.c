@@ -352,7 +352,7 @@ array_slice_get_sorted_array_item_for_item(
     do {
         const uint64_t index = array_slice_get_middle_index(slice);
 
-        void *const array_item = &data[index * item_size];
+        void *const array_item =  &data[index * item_size];
         const int compare = comparator(array_item, item);
 
         if (compare == 0) {
