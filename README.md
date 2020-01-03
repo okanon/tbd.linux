@@ -4,7 +4,10 @@
 Convert Mach-O Libraries &amp; Frameworks to .tbd
 
 ## How to Build
-`make` or `make C=gcc`
+`gcc >= 8.0` or `clang >= 4.0` required.
+```
+cmake -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Release .. && make
+```
 
 ## How to Use
 
