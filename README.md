@@ -1,5 +1,6 @@
 # tbd.linux
 
+[![Build Status](https://travis-ci.org/okanon/tbd.linux.svg?branch=master)](https://travis-ci.org/okanon/tbd.linux/)<br>
 Convert Mach-O Libraries &amp; Frameworks to .tbd
 
 ## How to Build
