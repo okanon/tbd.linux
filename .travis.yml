@@ -1,5 +1,4 @@
 dist: bionic
-language: c
 compiler:
    - gcc
    - clang
@@ -7,8 +6,9 @@ compiler:
 jobs:
    include:
       - stage: gcc
-        script:
-           - make C=gcc
+        env: C=gcc
       - stage: clang
-        script:
-           - make C=clang
+        env: C=clang
+
+script:
+   - make
