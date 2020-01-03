@@ -1,14 +1,31 @@
+os: linux
 dist: bionic
-compiler:
-   - gcc
-   - clang
+language: c
 
 jobs:
    include:
-      - stage: gcc
-        env: C=gcc
-      - stage: clang
-        env: C=clang
+      - stage: Debug build
+        compiler: gcc
+        env: CC=gcc-9 CONFIG=Debug
+      - stage: Debug build
+        compiler: clang
+        env: CC=clang CONFIG=Debug
+      - stage: Release build
+        compiler: gcc
+        env: CC=gcc-9 CONFIG=Release
+      - stage: Release build
+        compiler: clang
+        env: CC=clang CONFIG=Release
+
+addons:
+  apt:
+     sources:
+        - sourceline: 'ppa:ubuntu-toolchain-r/test'
+     packages:
+        - gcc-9
+        - cmake
 
 script:
-   - make
+   - mkdir build && cd build
+   - cmake -DCMAKE_BUILD_TYPE=$CONFIG .. && make CC=$CC VERBOSE=1
+   - ./tbd
