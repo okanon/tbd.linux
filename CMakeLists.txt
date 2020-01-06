@@ -1,6 +1,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
+set(CMAKE_C_COMPILER clang)
 project(tbd C)
 
 set(CMAKE_C_FLAGS "-std=gnu11 -Wshadow -Wwrite-strings")
