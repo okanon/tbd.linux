@@ -26,3 +26,5 @@ file(GLOB SRC src/*.c)
 
 include_directories(include/)
 add_executable(tbd ${SRC})
+
+install(TARGETS tbd RUNTIME DESTINATION bin)
